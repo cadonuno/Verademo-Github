@@ -25,20 +25,20 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven
-      working-directory: ./app
+      working-directory: app
       run: mvn -B package --file pom.xml
 
     - name: Upload Maven build artifact
       uses: actions/upload-artifact@v2
       with:
         name: Verademo.war
-        path: ./app/target/Verademo.war
+        path: app/target/Verademo.war
         
     - name: Download Maven build artifact
       uses: actions/download-artifact@v2
       with:
         name: Verademo.war
-        path: ./app/target
+        path: app/target
         
     - name: Veracode Upload And Scan
       uses: veracode/veracode-uploadandscan-action@0.2.1
@@ -46,7 +46,7 @@ jobs:
         appname: Verademo IDE
         createprofile: false
         version: ${{ github.run_id }}
-        filepath: ./app/target/Verademo.war
+        filepath: app/target/Verademo.war
         sandboxname: Github-Sandbox
         vid: ${{ secrets.VERACODE_API_ID }}
         vkey: ${{ secrets.VERACODE_API_VALUE }}
