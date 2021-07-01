@@ -28,7 +28,12 @@ jobs:
       working-directory: ./app
       run: mvn -B package --file pom.xml
 
-
+    - name: Upload Maven build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Verademo.war
+        path: app/target/Verademo.war
+        
     - name: Download Maven build artifact
       uses: actions/download-artifact@v2
       with:
