@@ -46,7 +46,7 @@ jobs:
         appname: Verademo IDE
         createprofile: false
         version: ${{ github.run_id }}
-        filepath: app/target/Verademo.war
+        filepath: app/target/verademo.war
         sandboxname: Github-Sandbox
         vid: ${{ secrets.VERACODE_API_ID }}
         vkey: ${{ secrets.VERACODE_API_VALUE }}
