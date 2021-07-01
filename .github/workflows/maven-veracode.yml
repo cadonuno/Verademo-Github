@@ -28,6 +28,13 @@ jobs:
       working-directory: ./app
       run: mvn -B package --file pom.xml
 
+
+    - name: Download Maven build artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: Verademo.war
+        path: app/target
+        
     - name: Veracode Upload And Scan
       uses: veracode/veracode-uploadandscan-action@0.2.1
       with:
