@@ -26,7 +26,7 @@ jobs:
 
     - name: Build with Maven
       working-directory: ./app
-      run: mvn -B clean install --file pom.xml
+      run: mvn -B package --file pom.xml
 
     - name: Veracode Upload And Scan
       uses: veracode/veracode-uploadandscan-action@0.2.1
@@ -34,7 +34,7 @@ jobs:
         appname: Verademo IDE
         createprofile: false
         version: ${{ github.run_id }}
-        filepath: ./target/Verademo.war
+        filepath: target/Verademo.war
         sandboxname: Github-Sandbox
         vid: ${{ secrets.VERACODE_API_ID }}
         vkey: ${{ secrets.VERACODE_API_VALUE }}
