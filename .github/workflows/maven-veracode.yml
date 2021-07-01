@@ -27,18 +27,6 @@ jobs:
     - name: Build with Maven
       working-directory: app
       run: mvn -B package --file pom.xml
-
-    - name: Upload Maven build artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: Verademo.war
-        path: app/target/verademo.war
-        
-    - name: Download Maven build artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: verademo.war
-        path: app/target/verademo.war
         
     - name: Veracode Upload And Scan
       uses: veracode/veracode-uploadandscan-action@0.2.1
