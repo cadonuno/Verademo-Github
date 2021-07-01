@@ -26,7 +26,7 @@ jobs:
 
     - name: Build with Maven
       working-directory: ./app
-      run: mvn -B package --file pom.xml
+      run: mvn -B clean install --file pom.xml
 
     - name: Veracode Upload And Scan
       uses: veracode/veracode-uploadandscan-action@0.2.1
