@@ -32,12 +32,12 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Verademo.war
-        path: app/target/Verademo.war
+        path: app/target/verademo.war
         
     - name: Download Maven build artifact
       uses: actions/download-artifact@v2
       with:
-        name: Verademo.war
+        name: verademo.war
         path: app/target
         
     - name: Veracode Upload And Scan
