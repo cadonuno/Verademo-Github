@@ -28,7 +28,6 @@ jobs:
       working-directory: app
       run: mvn -B package --file pom.xml
         
-        
     - name: Download the Pipeline Scanner
       uses: wei/curl@master
       with:
@@ -38,5 +37,5 @@ jobs:
       run: 7z e pipeline-scan-LATEST.zip -aoa
       
     - name: Run Pipeline Scanner
-      run: java -jar pipeline-scan.jar --verbose --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_VALUE}}" --file "example.jar" --fail_on_severity="Very High, High"
+      run: java -jar pipeline-scan.jar -p "Verademo IDE" --verbose --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_VALUE}}" --file "app/target/verademo.war" --fail_on_severity="Very High, High"
             
