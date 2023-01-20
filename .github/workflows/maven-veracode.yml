@@ -38,3 +38,6 @@ jobs:
         sandboxname: Github-Sandbox
         vid: ${{ secrets.VERACODE_API_ID }}
         vkey: ${{ secrets.VERACODE_API_VALUE }}
+        scantimeout: 180
+
+        
