@@ -29,8 +29,9 @@ jobs:
       run: mvn -B package --file pom.xml
       
   scan:
-    runs-on: veracode/pipeline-scan:latest
-    steps:
+    runs-on: ubuntu-latest
+    container: veracode/pipeline-scan:latest
+    steps:    
     - name: Run Pipeline Scanner
       run: java -jar /opt/veracode/pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_VALUE}}" --file "app/target/verademo.war" --fail_on_severity="Very High, High"
             
